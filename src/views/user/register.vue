@@ -1,3 +1,9 @@
+<!--
+ * @Date: 2024-10-28 15:27:26
+ * @description: 
+ * @LastEditors: 
+ * @LastEditTime: 2024-12-23 18:30:26
+-->
 <template>
     <el-form
         :model="form"
@@ -42,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, defineEmits } from 'vue'
+import { reactive } from 'vue'
 import { FormRules  } from 'element-plus'
 
 interface RegisterForm {

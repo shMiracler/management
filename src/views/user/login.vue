@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, defineEmits, onMounted } from 'vue'
+import { reactive, ref, onMounted } from 'vue'
 import { FormRules, FormInstance } from 'element-plus'
 import cookie from '@/class/cookie'
 import router from '@/router'
