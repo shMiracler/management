@@ -2,7 +2,7 @@
  * @Date: 2024-10-28 14:14:16
  * @description: 
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-12-06 10:36:45
+ * @LastEditTime: 2024-12-24 14:33:41
 -->
 <template>
     <el-form 
@@ -52,10 +52,12 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
 import { reactive, ref, onMounted } from 'vue'
 import { FormRules, FormInstance } from 'element-plus'
 import cookie from '@/class/cookie'
-import router from '@/router'
+
+const router = useRouter()
 
 interface LoginForm {
     username: string;

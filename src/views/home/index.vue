@@ -34,6 +34,9 @@
 <script setup lang="ts">
 import MenuList from '@/components/Layout/Menu/index.vue'
 import Breadcrumb from '@/components/Layout/Breadcrumb/index.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const handlerCommand = (command: string) => {
     if (command === 'loginOut') {
@@ -41,9 +44,7 @@ const handlerCommand = (command: string) => {
     }
 }
 
-const loginOut = () => {
-    console.log('退出登录')
-}
+const loginOut = () => { router.push({ name: 'login' }) }
 
 </script>
 
