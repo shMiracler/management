@@ -8,7 +8,7 @@ import axios, {
 import cookie from './cookie';
 
 interface RequestParams {
-    baseURL: string;
+    baseURL?: string;
     timeout?: number;
 }
 
@@ -16,9 +16,9 @@ class HttpRequest {
     private instance: AxiosInstance;
     private cancelTokenSource: CancelTokenSource;
 
-    constructor(params: RequestParams) {
+    constructor(params?: RequestParams) {
         this.instance = axios.create({
-            baseURL: params.baseURL,
+            baseURL: params?.baseURL ?? process.env.VUE_APP_BASE_API,
             timeout: params?.timeout || 10000,
         });
         // 取消请求凭证
@@ -77,4 +77,4 @@ class HttpRequest {
     }
 }
 
-export default HttpRequest;
+export default new HttpRequest()
