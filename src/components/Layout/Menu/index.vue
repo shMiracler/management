@@ -1,14 +1,16 @@
 <!--
  * @Date: 2024-10-24 16:16:57
- * @description: 
+ * @description: menu组件
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-11-27 15:01:30
+ * @LastEditTime: 2024-12-24 11:03:57
 -->
 <template>
-    <header class="logo"></header>
+    <header class="logo" :style="logoStyle"></header>
     <el-menu
         default-active="2"
         :collapse="isCollapse"
+        :text-color="props.textColor"
+        :background-color="props.backgroundColor"
         class="menu"
     >
         <el-menu-item index="1">首页面</el-menu-item>
@@ -16,9 +18,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
+// 接收props
+const props = defineProps({
+    backgroundColor: {
+        type: String,
+        default: '#001428',
+    },
+    textColor: {
+        type: String,
+        default: '#fff',
+    },
+})
+// 是否折叠
 const isCollapse = ref(false)
+
+// logo样式
+const logoStyle = computed(() => {
+    return { backgroundColor: props.backgroundColor }
+})
 
 </script>
 

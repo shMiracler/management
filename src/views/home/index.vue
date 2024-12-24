@@ -1,14 +1,27 @@
 <template>
     <section class="layout">
+        <!-- 侧边狼 -->
         <section class="layout-aside">
             <MenuList />
         </section>
+        <!-- 主内容区 -->
         <main class="layout-main">
             <header class="layout-main_header">
-                <SvgIcon 
-                    icon-name="default-user"
-                    class="layout-main_header_user" 
-                />
+                <el-dropdown placement="bottom-start" @command="handlerCommand">
+                    <span>
+                        <SvgIcon 
+                            icon-name="default-user" 
+                            class="layout-main_header_user" 
+                        />
+                    </span>
+                    <template #dropdown>
+                        <el-dropdown-menu>
+                            <el-dropdown-item command="user">用户信息</el-dropdown-item>
+                            <el-dropdown-item command="loginOut">退出登录</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </template>
+                </el-dropdown>
+                
             </header>
             <Breadcrumb />
             <section class="layout-main_content">
@@ -21,6 +34,16 @@
 <script setup lang="ts">
 import MenuList from '@/components/Layout/Menu/index.vue'
 import Breadcrumb from '@/components/Layout/Breadcrumb/index.vue'
+
+const handlerCommand = (command: string) => {
+    if (command === 'loginOut') {
+        loginOut()
+    }
+}
+
+const loginOut = () => {
+    console.log('退出登录')
+}
 
 </script>
 
