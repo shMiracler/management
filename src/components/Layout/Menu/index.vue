@@ -2,7 +2,7 @@
  * @Date: 2024-10-24 16:16:57
  * @description: menu组件
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-12-24 11:03:57
+ * @LastEditTime: 2024-12-24 11:15:04
 -->
 <template>
     <header class="logo" :style="logoStyle"></header>
@@ -13,7 +13,9 @@
         :background-color="props.backgroundColor"
         class="menu"
     >
-        <el-menu-item index="1">首页面</el-menu-item>
+        <el-menu-item index="1">
+            <SvgIcon iconName="home" color="#FFFFFF" class="menu-icon" /> 首页面
+        </el-menu-item>
     </el-menu>
 </template>
 
@@ -49,5 +51,9 @@ const logoStyle = computed(() => {
 .menu {
     overflow: auto;
     height: calc(100% - $tabHeight);
+    &-icon {
+        margin-right: 10px;
+        font-size: 18px;
+    }
 }
 </style>
