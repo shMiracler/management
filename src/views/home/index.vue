@@ -4,7 +4,12 @@
             <MenuList />
         </section>
         <main class="layout-main">
-            <header class="layout-main_header"></header>
+            <header class="layout-main_header">
+                <SvgIcon 
+                    icon-name="default-user"
+                    class="layout-main_header_user" 
+                />
+            </header>
             <Breadcrumb />
             <section class="layout-main_content">
                 <router-view />
@@ -33,10 +38,17 @@ import Breadcrumb from '@/components/Layout/Breadcrumb/index.vue'
         background: #F5F7F9;
         height: 100%;
         &_header {
+            display: grid;
+            justify-content: flex-end;
+            align-items: center;
             box-sizing: border-box;
             height: $tabHeight;
             background: #FFFFFF;
             border-bottom: 1px solid #E7E7E7;
+            &_user {
+                font-size: 28px;
+                margin-right: 15px;
+            }
         }
         &_content {
             overflow: hidden;
