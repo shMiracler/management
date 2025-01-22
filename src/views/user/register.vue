@@ -1,8 +1,8 @@
 <!--
  * @Date: 2024-10-28 15:27:26
  * @description: 
- * @LastEditors: 
- * @LastEditTime: 2024-12-23 18:30:26
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2025-01-22 11:17:25
 -->
 <template>
     <el-form
@@ -25,9 +25,9 @@
                 placeholder="请输入密码"
             />
         </el-form-item>
-        <el-form-item label="确认密码" prop="aginPassword">
+        <el-form-item label="确认密码" prop="againPassword">
             <el-input 
-                v-model="form.aginPassword"
+                v-model="form.againPassword"
                 show-password
                 placeholder="请输入密码"
             />
@@ -54,7 +54,7 @@ import { FormRules  } from 'element-plus'
 interface RegisterForm {
     username: string,
     password: string,
-    aginPassword: string
+    againPassword: string
 }
 
 const emits = defineEmits(['changeStatus'])
@@ -62,13 +62,13 @@ const emits = defineEmits(['changeStatus'])
 const form = reactive<RegisterForm>({
     username: '',
     password: '',
-    aginPassword: '',
+    againPassword: '',
 })
 
 const rules = reactive<FormRules<RegisterForm>>({
     username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
     password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
-    aginPassword: [
+    againPassword: [
         { required: true, message: '请输入密码', trigger: 'blur' },
     ]
 })
