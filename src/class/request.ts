@@ -18,7 +18,7 @@ class HttpRequest {
 
     constructor(params?: RequestParams) {
         this.instance = axios.create({
-            baseURL: params?.baseURL ?? process.env.VUE_APP_BASE_API,
+            baseURL: params?.baseURL || 'http://localhost:3000',
             timeout: params?.timeout || 10000,
         });
         // 取消请求凭证
@@ -31,7 +31,7 @@ class HttpRequest {
         });
         // 响应拦截器
         this.instance.interceptors.response.use(
-            (response: AxiosResponse) => { return response },
+            (response: AxiosResponse) => { return response.data },
             (error) => {
                 // 请求取消
                 if (axios.isCancel(error)) {

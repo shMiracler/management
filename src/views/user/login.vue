@@ -2,7 +2,7 @@
  * @Date: 2024-10-28 14:14:16
  * @description: 
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2025-01-03 16:48:38
+ * @LastEditTime: 2025-01-22 10:07:04
 -->
 <template>
     <el-form 
@@ -56,7 +56,7 @@ import { useRouter } from 'vue-router'
 import { reactive, ref, onMounted } from 'vue'
 import { FormRules, FormInstance } from 'element-plus'
 import cookie from '@/class/cookie'
-import { login } from '@/https/user'
+import { login } from '@/https/user/index.ts'
 
 const router = useRouter()
 
@@ -89,7 +89,7 @@ const submit = async (formElement: FormInstance | undefined) => {
     await formElement.validate(async (valid, fields) => {
         if (valid) {
             const result = await login(form) || {}
-            const { code, data, message } = result || {}
+            const { code, data, message } = result as any || {}
             if (+code === 200) {
                 cookie.set({ name: 'token', value: data.token })
                 router.push({ name: 'home' })

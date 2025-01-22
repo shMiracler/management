@@ -1,4 +1,4 @@
-import request from '@/utils/request'
+import request from '@/class/request.ts'
 
 interface UserData {
     username: string;
